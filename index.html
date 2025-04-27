@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<title>Score Analyzer</title>
+<style type="text/css">
+		body
+		{
+		background: url(https://i.pinimg.com/736x/5d/9b/4a/5d9b4aa68eb7e6a5d1d8fc036a1284ea.jpg); 
+		background-size: 130%;
+		background-repeat: no-repeat;
+		}
+		.container
+		{ 
+		display: flex;
+		}
+
+		img
+		{
+		height:250px ;
+		width:250px;
+		margin-left: 90px;
+		margin-right: 90px;
+		margin-top: 50px;
+		margin-bottom: 50px;
+		}
+
+</style>
+
+</head>
+<body>
+
+<center> 
+
+<br> 
+
+<h1 style="font-family: monaco, monospace; font-size: 80px; font-weight: bolder; color: #0d75a8;">Score Analyzer</h1>
+<p style="font-family: monaco, monospace; font-size: 20px; font-style:italic ; color: #0d75a8; margin-left: 100px; margin-right: 100px;">This website serves as a standard score analyzer for the following subjects: English, Math, and Science. These subjects are the three main subjects in every learning institution.</p>
+
+<br>
+
+<hr style="border: 10px solid #0d75a8;">
+
+<br>
+
+</center>
+
+<form>
+
+<center>
+
+<details ontoggle="detail()">
+
+<summary style="font-weight: bolder; color:#0d75a8; font-size: 20px; text-align:center; font-family:monaco,monospace;">Drop the arrow beside me DOWN!</summary>
+<i style="color:#3d4c54; font-size: 15px; text-align:center; font-family:monaco,monospace;"id="instruction"></i>	
+
+</details>
+
+</center>
+
+</form>
+
+<div class="container">
+
+<div class="math">
+<a href="https://ph.pinterest.com/pin/117093659056496796/" target="_blank"><img class="rounded-circle" src="https://i.pinimg.com/736x/5e/55/b4/5e55b413111934725a5523012232f5fd.jpg" alt="mathlogo" id="mlogo"></a>
+<div class="col-md-2">
+<label style=" color:#0d75a8 ; font-weight: bolder; font-family:monaco, monospace; font-size:25px;margin-left: 190px; margin-right: 100px;">Math</label>
+<input type="number" id="mathsubject" class="form-control" style="margin-left: 180px; margin-right: 100px;">
+
+</div>	
+</div>
+
+<div class="english">
+<a href="https://ph.pinterest.com/pin/405183297745519881/" target="_blank"><img class="rounded-circle" src="https://i.pinimg.com/736x/b8/81/a5/b881a56b07e4c2dae5859d363854c066.jpg" alt="englishlogo" id="elogo"></a>
+<div class="col-md-2">
+<label style=" color:#0d75a8 ; font-weight: bolder; font-family:monaco, monospace; font-size:25px;margin-left: 165px; margin-right: 100px;">English</label>
+<input type="number" id="englishsubject" class="form-control" style="margin-left: 180px; margin-right: 100px;">
+
+</div>	
+</div>
+
+<div class="science">
+<a href="https://ph.pinterest.com/pin/164662930121163336/" target="_blank"><img class="rounded-circle" src="https://i.pinimg.com/736x/e2/4b/40/e24b403f8017a21282dfdee0c2c3a96f.jpg" alt="sciencelogo" id="slogo"></a>
+<div class="col-md-2">
+<label style=" color:#0d75a8 ; font-weight: bolder; font-family:monaco, monospace; font-size:25px;margin-left: 160px; margin-right: 100px;">Science</label>
+<input type="number" id="sciencesubject" class="form-control" style="margin-left: 180px; margin-right: 100px;">
+
+</div>	
+</div>
+</div>
+
+<br><br>
+
+<center>
+
+<button type="submit" class="btn" style="background-color:#0d75a8; color:white; font-family:monospace; font-size:15px;" onclick="average()">Generate</button>
+
+<br><br>
+
+</center>
+
+</form>
+
+<hr style="border: 10px solid #0d75a8;">
+
+<center>
+
+<p style="font-family:monaco, monospace; font-size: 15px;"><i> Cabrillos, Martina Alexandra C. </i><p>
+<p><i><a href="https://docs.google.com/document/d/12gByrXdqgzovz_4Cmcgcd9nU-wp-mjVQ5WbGs4Fnr0Q/edit?usp=sharing" style="font-family:monaco, monospace; font-size: 15px; color: black;" target="_blank">Source Link</a> </i><p>
+
+<center>
+
+<script>
+
+	function detail()
+	{	
+		document.getElementById('instruction').innerHTML = "Input your grades for each subject and click generate to see your average.";
+	}
+
+</script>
+
+<script>
+
+	function average()
+	{
+
+		var vsub1 = (Number(document.getElementById('mathsubject').value));
+		var vsub2 = (Number(document.getElementById('englishsubject').value));
+		var vsub3 = (Number(document.getElementById('sciencesubject').value));
+		var v4 = (Number(vsub1) + Number(vsub2) + Number(vsub3));
+		var v5 = 3
+		var v6 = Math.round(Number(v4) / Number(v5));
+		var total = v6.toFixed(2);
+		
+		switch (true)
+	{ 
+		// the 'true' helps the expression choose which case to execute in the code. 
+		case (total >= 94):
+		window.alert("Excellent, " + total);
+		break;
+		
+		case (total <= 93.99 &&  total >= 87):
+		window.alert("Above Satisfactory, " + total);
+		break;
+
+		case (total <= 86.99 &&  total >= 80):
+		window.alert("Satisfactory, " + total);
+		break;
+
+		case (total <= 79.99 &&  total >= 75):
+		window.alert("Needs Improvement, " +  total);
+		break;
+
+		default: 
+		window.alert("Poor, " + total);
+		break;
+
+	} 
+	} 
+
+</script> 
+
+</body>
+</html>
